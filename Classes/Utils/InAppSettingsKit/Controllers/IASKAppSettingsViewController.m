@@ -576,6 +576,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 		IASKTextField *textField = ((IASKPSTextFieldSpecifierViewCell*)cell).textField;
 		textField.text = textValue;
 		textField.key = specifier.key;
+        textField.placeholder = specifier.title;
 		textField.delegate = self;
 		textField.secureTextEntry = [specifier isSecure];
 		textField.keyboardType = specifier.keyboardType;
@@ -730,6 +731,7 @@ CGRect IASKCGRectSwap(CGRect rect);
         targetViewController.hiddenKeys = self.hiddenKeys;
 		targetViewController.title = specifier.title;
         targetViewController.showCreditsFooter = NO;
+
         [[self navigationController] pushViewController:targetViewController animated:YES];
 	} else if ([[specifier type] isEqualToString:kIASKOpenURLSpecifier]) {
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
